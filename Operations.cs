@@ -539,11 +539,9 @@ class Operations
             string selectedVulnerability = $"Vulnerability {selectedVulnerabilityIndex}";
             Console.WriteLine($"Exploiting {selectedVulnerability} on network '{selectedNetwork}'...");
 
-            // الآن نسمح للاعب بإدخال أوامر حقيقية
             Console.WriteLine("Enter the command to exploit the vulnerability:");
             string exploitCommand = Console.ReadLine();
 
-            // تحقق من صحة الأمر وقم بتنفيذه إذا كان صحيحًا
             if (ExecuteExploit(selectedVulnerabilityIndex, exploitCommand))
             {
                 Console.WriteLine($"Successfully exploited {selectedVulnerability} for '{selectedNetwork}'!");
@@ -565,26 +563,20 @@ class Operations
         switch (vulnerabilityIndex)
         {
             case 1:
-                // تحقق من الأمر وقم بتنفيذ الثغرة لضعف التشفير WPA2
                 if (exploitCommand == "exploit_wpa2")
                 {
-                    // قم بتنفيذ الثغرة وإرجاع نتيجة نجاحها أو فشلها
                     return ExploitWeakWPA2();
                 }
                 break;
             case 2:
-                // تحقق من الأمر وقم بتنفيذ الثغرة لفتح المنفذ 80
                 if (exploitCommand == "exploit_port_80")
                 {
-                    // قم بتنفيذ الثغرة وإرجاع نتيجة نجاحها أو فشلها
                     return ExploitOpenPort80();
                 }
                 break;
             case 3:
-                // تحقق من الأمر وقم بتنفيذ تحديث البرامج الثابتة للجهاز
                 if (exploitCommand == "update_firmware")
                 {
-                    // قم بتنفيذ تحديث البرامج الثابتة وإرجاع نتيجة نجاحه أو فشله
                     return UpdateRouterFirmware();
                 }
                 break;
@@ -592,32 +584,23 @@ class Operations
                 break;
         }
 
-        // إذا كان الأمر غير صحيحًا أو غير مدعومًا، اعتبره فشلاً
         return false;
         // تنفيذ الثغرة لضعف التشفير WPA2
         static bool ExploitWeakWPA2()
         {
             Console.WriteLine("Exploiting Weak WPA2 Encryption...");
-            // هنا يمكنك تنفيذ الأمر الفعلي لاختراق ضعف التشفير WPA2
-            // إذا نجح الاختراق، قم بإرجاع true، وإلا قم بإرجاع false
             return true;
         }
 
-        // تنفيذ الثغرة لفتح المنفذ 80
         static bool ExploitOpenPort80()
         {
             Console.WriteLine("Exploiting Open Port 80...");
-            // هنا يمكنك تنفيذ الأمر الفعلي لفتح المنفذ 80
-            // إذا نجح الاختراق، قم بإرجاع true، وإلا قم بإرجاع false
             return true;
         }
 
-        // تنفيذ تحديث البرامج الثابتة للجهاز
         static bool UpdateRouterFirmware()
         {
             Console.WriteLine("Updating Router Firmware...");
-            // هنا يمكنك تنفيذ الأمر الفعلي لتحديث البرامج الثابتة للجهاز
-            // إذا نجح التحديث، قم بإرجاع true، وإلا قم بإرجاع false
             return true;
         }
     }
