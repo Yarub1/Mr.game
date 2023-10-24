@@ -17,7 +17,7 @@ class Menu
         do
         {
             //Console.Clear();
-            InterFace.ConsoleApp.DrawSection(2, 2, 30, 10 + 2, "OOOO"); // رسم إطار قائمة الخيارات
+            InterFace.ConsoleApp.DrawSection(2, 2, 30, 10 + 2, "OOOO"); // 
             DisplayMenu(left, top, width, height);
             key = Console.ReadKey().Key;
 
