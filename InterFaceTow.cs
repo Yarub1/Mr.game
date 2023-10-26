@@ -58,10 +58,10 @@ namespace game
             };
            
             // Display the content in each box
-            //msgBox.DisplayContent(msgContent);
-            //bbbBox.DisplayContent(bbbContent);
+            msgBox.DisplayContent(msgContent);
+            bbbBox.DisplayContent(bbbContent);
 
-            //Chatting(msgBox);
+            Chatting(msgBox);
 
 
 
@@ -112,25 +112,25 @@ namespace game
 
             string[] helpContent =
             {
-                //" ",
-                //"There is an abandoned warehouse that we will use as ",
-                //"our headquarters. It is very convenient as it is far " ,
-                //"from the crowd and no one is there most of the time,it is quiet",
-                //"and most importantly, it is dark like our days. Your task is to",
-                //"prepare the headquarters for us.",
-                //"We cannot make any mistake whatsoever, and after this step you",
-                //"withdraw. You are now about to create your army. You may be",
-                //"uninterested or you may mock this mission, but changing the" ,
-                //" world depends on you. So my directions are to you",
-                //"There is an electric gate at the entrance, which is not" ,
-                //" guarded by anyone, and the fence cannot be penetrated because it is",
-                //"very high. I have done research on the place and how the portal works",
-                //"have done research on the place and how the portal works" ,
-                //"so I will make it easier for you or consider it cooperation between us.",
-                //"You must provide us with the ability to pass through it." ,
-                //"I forgot to tell you that it works via Bluetooth.",
-                //"I do not know if this thing is important to you.",
-                //"Press Enter to start the task"
+                " ",
+                "There is an abandoned warehouse that we will use as ",
+                "our headquarters. It is very convenient as it is far " ,
+                "from the crowd and no one is there most of the time,it is quiet",
+                "and most importantly, it is dark like our days. Your task is to",
+                "prepare the headquarters for us.",
+                "We cannot make any mistake whatsoever, and after this step you",
+                "withdraw. You are now about to create your army. You may be",
+                "uninterested or you may mock this mission, but changing the" ,
+                " world depends on you. So my directions are to you",
+                "There is an electric gate at the entrance, which is not" ,
+                " guarded by anyone, and the fence cannot be penetrated because it is",
+                "very high. I have done research on the place and how the portal works",
+                "have done research on the place and how the portal works" ,
+                "so I will make it easier for you or consider it cooperation between us.",
+                "You must provide us with the ability to pass through it." ,
+                "I forgot to tell you that it works via Bluetooth.",
+                "I do not know if this thing is important to you.",
+                "Press Enter to start the task"
 
             };
             UpdateMsgBox(zzzBox, helpContent);
@@ -139,14 +139,15 @@ namespace game
 
             string[] newMsgContent1 =
             {
-                //$"Now You have to choose which tools you will help the scenario",
-                //"Here are some tools that I was able to get them from a Dark Web.",
-                //"Try to find what suits you"
+                $"Now You have to choose which tools you will help the scenario",
+                "Here are some tools that I was able to get them from a Dark Web.",
+                "Try to find what suits you"
             };
             UpdateMsgBox(zzzBox, newMsgContent1);
             Thread.Sleep(2000);
 
             zzzBox.Clear();
+            Label:
 
             string[] menuOptions =
                 { "Scan for Vulnerabilities ", "Social Engineering", "Sneak Inside" };
@@ -211,8 +212,9 @@ namespace game
                                 }
                                 else if (help == "msfconsole")
                                 {
-                                    MetasploitGame metasploit = new MetasploitGame();
-                                    metasploit.Metasploit();
+                                    Console.Clear();
+                                    metasploitGame = new MetasploitGame();
+                                    metasploitGame.Metasploit();
                                 }
                                 else
                                 {
@@ -236,6 +238,7 @@ namespace game
                             UpdateMsgBox(eeeBox, "Invalid command.");
                             Thread.Sleep(2000);
                             zzzBox.Clear();
+                            goto Label;
                         }//root
 
                     }
@@ -250,13 +253,21 @@ namespace game
                         UpdateMsgBox(eeeBox, "Invalid command.");
                         Thread.Sleep(2000);
                         zzzBox.Clear();
-                    }break;   
+                        goto Label;
+
+                    }
+                    break;   
 
             ;
 
                 case 1:
+                    goto Label;
 
-                break;
+                    break;
+                case 2:
+                    goto Label;
+
+                    break;
             }
         }
 

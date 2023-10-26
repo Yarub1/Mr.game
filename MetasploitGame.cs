@@ -1,4 +1,6 @@
-﻿namespace MrRoboT
+﻿using System.Text;
+
+namespace MrRoboT
 {
     public class Exploit
     {
@@ -22,6 +24,7 @@
             Service = service;
             Vulnerability = vulnerability;
         }
+
     }
     class PortResult
     {
@@ -64,6 +67,7 @@
             "192.168.1.5",
             // Add more IP addresses as needed
         };
+
 
         private List<Exploit> exploits = new List<Exploit>
 {

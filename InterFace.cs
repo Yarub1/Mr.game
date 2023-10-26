@@ -5,7 +5,11 @@ using MrRoboT;
 namespace game;
 
 internal class InterFace
-{
+{/// <summary>
+/// The code above includes the necessary using statements and defines a class called InterFace with an inner class called ConsoleApp.
+/// The ConsoleApp class has four private fields of type Box that represent different sections of the console window.
+/// The constructor initializes these fields with specific dimensions and colors.
+/// </summary>
     private static readonly Operations operationsObject = new();
     private const string ANSI_RESET = "\u001b[0m";
     private const string ANSI_RED = "\u001b[31m";
@@ -30,7 +34,10 @@ internal class InterFace
         }
 
         public void Run()
-        {
+        {//The Run method is the entry point of the program. It sets the console window width, draws a section on the console window,
+         //and displays the content in each box. It then prompts the user to choose a device from a menu and performs different actions based on the selected index.
+         //The Case0, Case1, Case2, and Case3 methods are called depending on the selected index. If the selected index is not valid,
+         //an error message is displayed. The program continues to prompt the user until a valid option is selected.
 
             Console.WindowWidth = 800;
             DrawSection(0, 0, 119, 28, "");
@@ -116,9 +123,11 @@ internal class InterFace
         }
 
 
-        // Move your methods here
+        // methods here
         private static void UpdateMsgBox(Box msgBox, string newMsgOneContent)
-        {
+        {//The UpdateMsgBox method is responsible for updating the content of a message box. It clears the message box,
+         //sets the background color to black, and calculates the position to center the text. It then iterates over each character in the new content,
+         //writes it to the console, and adjusts the position. After typing the content, it resets the colors of the message box.
             msgBox.Clear(); // Clear the message box
             msgBox.BackgroundColor = ConsoleColor.Black; // Reset background color
 
@@ -139,6 +148,9 @@ internal class InterFace
             msgBox.ResetColors(); // Reset colors when done typing
         }
 
+        //The DisplayMenuInBox method is responsible for displaying a menu inside a box.
+        //It calculates the maximum number of menu options that can fit inside the box and adjusts the starting and ending indices based on the selected index.
+        //It then clears the box content, displays the menu options inside the box, and updates the content of the box.
         public static void DisplayMenuInBox(Box box, string[] options, int selectedIndex)
         {
             // Calculate the maximum number of menu options that can fit inside the box
@@ -172,6 +184,10 @@ internal class InterFace
             box.DisplayContent(menuContent);
         }
 
+
+        //The DrawSection method is responsible for drawing a section on the console window. It sets the background color to dark green,
+        //writes the title with padding to the specified position, and sets the background color back to black.
+        //It then draws the vertical lines and the bottom line of the section using the characters '║' and '═'.
         public static void DrawSection(int left, int top, int width, int height, string title)
         {
             Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -193,7 +209,8 @@ internal class InterFace
             Console.Write("╚" + new string('═', width - 1) + "╝");
 
         }
-
+        //The DisplayContentAt method is responsible for displaying content at a specific position on the console window.
+        //It sets the cursor position, foreground color, and background color, writes the content, and resets the colors.
         public static void DisplayContentAt(int left, int top, string content, ConsoleColor foregroundColor,
             ConsoleColor backgroundColor)
         {
@@ -203,7 +220,9 @@ internal class InterFace
             Console.WriteLine(content);
             Console.ResetColor();
         }
-
+        //The TypeTextWithEffect method is responsible for typing text with a typing effect on the console window.
+        //It sets the cursor position, foreground color, and background color, iterates over each character in the text,
+        //writes the character, and sleeps for a specified duration to control the typing speed. After typing the text, it resets the colors.
         public static void TypeTextWithEffect(int left, int top, string text, ConsoleColor foregroundColor,
             ConsoleColor backgroundColor)
         {
@@ -219,7 +238,10 @@ internal class InterFace
 
             Console.ResetColor();
         }
-
+        //The UpdateMsgBox method is responsible for updating the content of a message box with multiple lines.
+        //It clears the message box, sets the background color to black, and calculates the position to center the text.
+        //It then iterates over each line in the new content, writes the partial line to the console, and adjusts the position.
+        //After typing the content, it resets the colors of the message box.
         private static void UpdateMsgBox(Box msgBox, string[] newContent)
         {
             msgBox.Clear(); // Clear the message box
@@ -275,10 +297,8 @@ internal class InterFace
             }
         }
 
-        // Add your other methods here
         private void DisplayWorldMap()
         {
-            // Define your world map ASCII art
             var worldMap = @"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣄⣠⣀⡀⣀⣠⣤⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢠⣠⣼⣿⣿⣿⣟⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⢠⣤⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⢦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⣼⡧⣟⣾⣿⣽⣿⣿⣅⠈⠉⠻⣿⣿⣿⣿⣿⡿⠇⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⢀⡶⠒⢉⡀⢠⣤⣶⣶⣿⣷⣆⣀⡀⠀⢲⣖⠒⠀⠀⠀⠀⠀⠀⠀

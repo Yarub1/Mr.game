@@ -82,7 +82,16 @@ public class LoginManager
     }
 
     private static string GetHiddenInput()
-    {
+    {//private static string GetHiddenInput()
+     // 
+     // This is a private static method named GetHiddenInput(). It is responsible for reading user input without displaying it on the console. Here's how it works:
+     //The method uses a do-while loop to continuously read key inputs from the user until the Enter key is pressed. It uses the Console.ReadKey() method to read the key input without displaying it on the console.
+     // 
+     // If the pressed key is not Enter or Backspace, the character is added to the input string and an asterisk is displayed on the console.
+     // 
+     // If the pressed key is Backspace and the input string is not empty, the last character is removed from the input string and the corresponding asterisk is erased from the console.
+     // 
+     // After the loop ends, a new line is printed on the console, and the input string is returned.
         var input = "";
         ConsoleKeyInfo keyInfo;
 
